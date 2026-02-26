@@ -2,6 +2,7 @@ import { BarChart3, TrendingUp, Wallet } from 'lucide-react'
 import './App.css'
 import DashboardLayout from './components/layout/DashboardLayout'
 import { StatCard } from './components/StatCard'
+import { TransactionTable } from './components/TransactionTable'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             icon={<BarChart3 size={20} />} 
           />
         </div>
+        <TransactionTable />
       </main>
       </DashboardLayout>
     </>
