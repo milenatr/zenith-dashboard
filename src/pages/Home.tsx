@@ -17,6 +17,6 @@ export const Home = () => (
       <StatCard title="Inversiones" amount="$8,120.00" icon={<BarChart3 size={20} />} />
     </div>
     <BalanceChart />
-    <TransactionTable />
+    <TransactionTable limit={3}/>
   </main>
 );

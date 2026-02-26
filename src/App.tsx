@@ -1,10 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { DashboardLayout } from './components/layout/DashboardLayout'
 import { Home } from './pages/Home';
-
-// Creá estas rápido para probar
-const Portfolio = () => <div className="p-8 text-white text-3xl font-bold">Página de Portfolio</div>;
-const Transactions = () => <div className="p-8 text-white text-3xl font-bold">Página de Transacciones</div>;
+import { Portfolio } from './pages/Portfolio';
+import { Transactions } from './pages/Transactions';
 
 function App() {
   return (
