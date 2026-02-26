@@ -1,12 +1,11 @@
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, Wallet, ArrowLeftRight, Settings as SettingsIcon } from 'lucide-react';
+import { LayoutDashboard, Wallet, ArrowLeftRight } from 'lucide-react';
 
 export const Sidebar = () => {
   const menuItems = [
     { name: 'Dashboard', path: '/', icon: <LayoutDashboard size={20} /> },
     { name: 'Portfolio', path: '/portfolio', icon: <Wallet size={20} /> },
     { name: 'Transactions', path: '/transactions', icon: <ArrowLeftRight size={20} /> },
-    { name: 'Settings', path: '/settings', icon: <SettingsIcon size={20} /> },
   ];
 
   return (

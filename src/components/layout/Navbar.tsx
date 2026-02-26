@@ -1,5 +1,6 @@
 import { Search } from 'lucide-react';
 import { ThemeToggle } from '../ThemeToggle';
+import { UserButton } from '@clerk/clerk-react';
 
 export const Navbar = () => {
   return (
@@ -15,9 +16,7 @@ export const Navbar = () => {
       
       <div className="flex items-center gap-4">
         <ThemeToggle />
-        <div className="h-8 w-8 rounded-full bg-indigo-500 flex items-center justify-center text-slate-900 dark:text-white font-bold text-sm">
-          M
-        </div>
+        <UserButton/>
       </div>
     </header>
   );
