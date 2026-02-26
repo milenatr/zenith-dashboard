@@ -9,7 +9,7 @@ interface StatCardProps {
 
 export const StatCard = ({ title, amount, icon, trend }: StatCardProps) => {
   return (
-    <div className="bg-slate-900/50 border border-slate-800 p-6 rounded-2xl hover:border-indigo-500/50 transition-colors">
+    <div className="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl hover:border-indigo-500/50 transition-colors">
       <div className="flex justify-between items-start mb-4">
         <div className="p-2 bg-indigo-500/10 rounded-lg text-indigo-400">
           {icon}
@@ -22,7 +22,7 @@ export const StatCard = ({ title, amount, icon, trend }: StatCardProps) => {
       </div>
       <div>
         <p className="text-slate-400 text-sm font-medium">{title}</p>
-        <h3 className="text-2xl font-bold text-white mt-1">{amount}</h3>
+        <h3 className="text-2xl font-bold text-slate-900 dark:text-white mt-1">{amount}</h3>
       </div>
     </div>
   );

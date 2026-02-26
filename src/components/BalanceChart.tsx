@@ -10,10 +10,12 @@ const data = [
   { name: 'Dom', balance: 7500 },
 ];
 
+const gridColor = document.documentElement.classList.contains('dark') ? '#1e293b' : '#e2e8f0';
+
 export const BalanceChart = () => {
   return (
-    <div className="mt-8 bg-slate-900/40 border border-slate-800 p-6 rounded-2xl">
-      <h3 className="text-xl font-semibold text-white mb-6">Rendimiento de Cartera</h3>
+    <div className="mt-8 bg-white dark:bg-slate-900/40 borderborder-slate-200 dark:border-slate-800 p-6 rounded-2xl">
+      <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">Rendimiento de Cartera</h3>
       <div className="h-[300px] w-full">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data}>
@@ -23,7 +25,7 @@ export const BalanceChart = () => {
                 <stop offset="95%" stopColor="#6366f1" stopOpacity={0}/>
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" vertical={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke={gridColor} vertical={false} />
             <XAxis 
               dataKey="name" 
               stroke="#64748b" 

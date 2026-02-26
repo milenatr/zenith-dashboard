@@ -16,10 +16,10 @@ export const Transactions = () => {
             <input 
               type="text" 
               placeholder="Buscar..." 
-              className="bg-slate-900 border border-slate-800 rounded-xl py-2 pl-10 pr-4 text-white focus:outline-none focus:border-indigo-500 transition-colors"
+              className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl py-2 pl-10 pr-4 text-slate-900 dark:text-white focus:outline-none focus:border-indigo-500 transition-colors"
             />
           </div>
-          <button className="bg-slate-900 border border-slate-800 p-2 rounded-xl text-slate-400 hover:text-white">
+          <button className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-2 rounded-xl text-slate-400 hover:text-slate-900 dark:text-white">
             <Filter size={20} />
           </button>
         </div>

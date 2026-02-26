@@ -11,7 +11,7 @@ export const Portfolio = () => {
   return (
     <main className="p-8">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold text-white">Mi Portfolio</h1>
+        <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Mi Portfolio</h1>
         <p className="text-slate-400">Distribución de activos y rendimiento.</p>
       </header>
 
@@ -30,9 +30,9 @@ export const Portfolio = () => {
       </div>
 
       {/* Lista de Activos */}
-      <div className="bg-slate-900/40 border border-slate-800 rounded-2xl overflow-hidden">
-        <div className="p-6 border-b border-slate-800">
-          <h3 className="text-xl font-semibold text-white">Tus Activos</h3>
+      <div className="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden">
+        <div className="p-6 border-b border-slate-200 dark:border-slate-800">
+          <h3 className="text-xl font-semibold text-slate-900 dark:text-white">Tus Activos</h3>
         </div>
         <div className="divide-y divide-slate-800">
           {ASSETS.map((asset) => (
@@ -42,12 +42,12 @@ export const Portfolio = () => {
                   {asset.type === 'crypto' ? <Coins size={24} /> : <Landmark size={24} />}
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{asset.name}</p>
+                  <p className="text-slate-900 dark:text-white font-semibold">{asset.name}</p>
                   <p className="text-slate-500 text-sm">{asset.balance} {asset.symbol}</p>
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-white font-bold">{asset.value}</p>
+                <p className="text-slate-900 dark:text-white font-bold">{asset.value}</p>
                 <div className={`flex items-center justify-end text-sm ${asset.change.startsWith('+') ? 'text-emerald-400' : 'text-rose-400'}`}>
                   {asset.change.startsWith('+') ? <ArrowUpRight size={14} /> : <ArrowDownRight size={14} />}
                   {asset.change}
