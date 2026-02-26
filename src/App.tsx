@@ -10,27 +10,28 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Lógica para usuarios NO logueados */}
-        <Route 
-          path="/login" 
-          element={<SignedOut><LandingPage /></SignedOut>} 
-        />
+        {/* PÁGINA DE BIENVENIDA (Pública) */}
+        <Route path="/" element={<LandingPage />} />
 
-        {/* Rutas con Sidebar y Navbar (URLs limpias) */}
+        {/* APP PRIVADA (Solo si está logueado) */}
         <Route 
+          path="/dashboard" 
           element={
             <SignedIn>
               <DashboardLayout />
             </SignedIn>
           }
         >
-          <Route path="/" element={<Home />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/transactions" element={<Transactions />} />
+          {/* Al entrar a /dashboard, muestra la Home del panel */}
+          <Route index element={<Home />} /> 
+          
+          {/* Estas serán /dashboard/portfolio y /dashboard/transactions */}
+          <Route path="portfolio" element={<Portfolio />} />
+          <Route path="transactions" element={<Transactions />} />
         </Route>
 
-        {/* Redirección automática si no está logueado */}
-        <Route path="*" element={<SignedOut><Navigate to="/login" /></SignedOut>} />
+        {/* Redirección si intentan entrar a algo privado sin sesión */}
+        <Route path="*" element={<SignedOut><Navigate to="/" /></SignedOut>} />
       </Routes>
     </BrowserRouter>
   );

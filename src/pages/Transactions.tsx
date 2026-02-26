@@ -6,7 +6,7 @@ export const Transactions = () => {
     <main className="p-8">
       <header className="mb-8 flex justify-between items-end">
         <div>
-          <h1 className="text-3xl font-bold text-white">Historial</h1>
+          <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Historial</h1>
           <p className="text-slate-400">Revisa todos tus movimientos bancarios.</p>
         </div>
         

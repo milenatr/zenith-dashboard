@@ -3,12 +3,20 @@ import { Wallet, TrendingUp, BarChart3 } from 'lucide-react';
 import { StatCard } from '../components/StatCard';
 import { TransactionTable } from '../components/TransactionTable';
 import { BalanceChart } from '../components/BalanceChart';
+import { useUser } from '@clerk/clerk-react';
 
-export const Home = () => (
-  <main className="flex-1 p-8">
+export const Home = () => {
+  const { isLoaded, isSignedIn, user } = useUser(); // Extraemos la info del usuario
+
+  if (!isLoaded || !isSignedIn) {
+    return null; 
+  }
+
+  return (
+    <main className="flex-1 p-8">
     <header className="mb-8">
       <h1 className="text-3xl font-bold text-slate-900 dark:text-white">Dashboard</h1>
-      <p className="text-slate-400">Bienvenida de nuevo, Milena.</p>
+      <p className="text-slate-400">Bienvenida de nuevo, {user.firstName || "Usuario"}</p>
     </header>
 
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -19,4 +27,5 @@ export const Home = () => (
     <BalanceChart />
     <TransactionTable limit={3}/>
   </main>
-);
+  )
+}

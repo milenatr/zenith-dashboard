@@ -7,9 +7,9 @@ interface SidebarProps {
 
 export const Sidebar = ({ onClose }: SidebarProps) => {
   const menuItems = [
-    { name: 'Dashboard', path: '/', icon: <LayoutDashboard size={20} /> },
-    { name: 'Portfolio', path: '/portfolio', icon: <Wallet size={20} /> },
-    { name: 'Transactions', path: '/transactions', icon: <ArrowLeftRight size={20} /> },
+    { name: 'Dashboard', path: '/dashboard', icon: <LayoutDashboard size={20} /> },
+    { name: 'Portfolio', path: '/dashboard/portfolio', icon: <Wallet size={20} /> },
+    { name: 'Transactions', path: '/dashboard/transactions', icon: <ArrowLeftRight size={20} /> },
   ];
 
   return (
@@ -32,6 +32,7 @@ export const Sidebar = ({ onClose }: SidebarProps) => {
             key={item.name}
             to={item.path}
             onClick={onClose}
+            end={item.path === '/dashboard'}
             className={({ isActive }) => 
               `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
                 isActive 

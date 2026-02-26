@@ -1,8 +1,21 @@
-import { SignInButton } from "@clerk/clerk-react";
+import { SignInButton, useAuth } from "@clerk/clerk-react";
 import { ArrowRight, BarChart3, ShieldCheck, Zap } from "lucide-react";
 import { ThemeToggle } from "../components/ThemeToggle";
+import { useNavigate } from "react-router-dom";
 
 export const LandingPage = () => {
+
+  const { isSignedIn } = useAuth();
+  const navigate = useNavigate();
+
+  const handleStart = () => {
+    if (isSignedIn) {
+      // Si ya está logueado, lo mandamos al panel
+      navigate("/dashboard");
+    }
+    // Si no está logueado, el SignInButton hará su magia solo
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#020617] transition-colors">
       {/* Navbar simple */}
@@ -24,11 +37,20 @@ export const LandingPage = () => {
         <p className="text-lg text-slate-600 dark:text-slate-400 mb-10">
           La plataforma definitiva para trackear tus activos, analizar tus gastos y potenciar tus ahorros en un solo lugar.
         </p>
-        <SignInButton mode="modal">
-          <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-indigo-500/20 flex items-center gap-2 mx-auto transition-all hover:scale-105">
-            Empieza Gratis <ArrowRight size={20} />
+        {isSignedIn ? (
+          <button 
+            onClick={handleStart}
+            className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-indigo-500/20 flex items-center gap-2 mx-auto transition-all hover:scale-105"
+          >
+            Ir al Dashboard <ArrowRight size={20} />
           </button>
-        </SignInButton>
+        ) : (
+          <SignInButton mode="modal">
+            <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-indigo-500/20 flex items-center gap-2 mx-auto transition-all hover:scale-105">
+              Empieza Gratis <ArrowRight size={20} />
+            </button>
+          </SignInButton>
+        )}
       </header>
 
       {/* Features */}
