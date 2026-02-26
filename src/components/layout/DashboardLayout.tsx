@@ -1,22 +1,13 @@
-import type { ReactNode } from 'react';
-import Sidebar from './Sidebar';
+import { Outlet } from 'react-router-dom';
+import { Sidebar } from './Sidebar';
 
-interface Props {
-  children: ReactNode;
-}
-
-const DashboardLayout = ({ children }: Props) => {
+export const DashboardLayout = () => {
   return (
-    <div className="flex h-screen bg-slate-950 text-slate-50">
-      {/* Sidebar fijo a la izquierda */}
+    <div className="flex min-h-screen bg-[#020617]">
       <Sidebar />
-      
-      {/* Contenido principal scrolleable */}
-      <main className="flex-1 overflow-y-auto p-8">
-        {children}
-      </main>
+      <div className="flex-1">
+        <Outlet />
+      </div>
     </div>
   );
 };
-
-export default DashboardLayout;

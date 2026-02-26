@@ -1,29 +1,36 @@
-import { LayoutDashboard, Wallet, ArrowUpRight, Settings } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
+import { LayoutDashboard, Wallet, ArrowLeftRight, Settings as SettingsIcon } from 'lucide-react';
 
-const Sidebar = () => {
+export const Sidebar = () => {
   const menuItems = [
-    { icon: <LayoutDashboard size={20} />, label: 'Dashboard' },
-    { icon: <Wallet size={20} />, label: 'Portfolio' },
-    { icon: <ArrowUpRight size={20} />, label: 'Transactions' },
-    { icon: <Settings size={20} />, label: 'Settings' },
+    { name: 'Dashboard', path: '/', icon: <LayoutDashboard size={20} /> },
+    { name: 'Portfolio', path: '/portfolio', icon: <Wallet size={20} /> },
+    { name: 'Transactions', path: '/transactions', icon: <ArrowLeftRight size={20} /> },
+    { name: 'Settings', path: '/settings', icon: <SettingsIcon size={20} /> },
   ];
 
   return (
-    <aside className="w-64 border-r border-slate-800 flex flex-col p-6">
-      <div className="text-2xl font-bold text-indigo-500 mb-10">Zenith</div>
-      <nav className="flex-1 space-y-2">
+    <aside className="w-64 bg-slate-950 border-r border-slate-800 p-6 flex flex-col h-screen sticky top-0">
+      <div className="text-2xl font-bold text-indigo-500 mb-10 px-2 tracking-tight">Zenith</div>
+      
+      <nav className="space-y-2">
         {menuItems.map((item) => (
-          <button 
-            key={item.label}
-            className="flex items-center gap-3 w-full p-3 rounded-lg hover:bg-slate-900 transition-colors text-slate-400 hover:text-white"
+          <NavLink
+            key={item.name}
+            to={item.path}
+            className={({ isActive }) => 
+              `flex items-center gap-3 px-4 py-3 rounded-xl transition-colors duration-200 group ${
+                isActive 
+                  ? 'bg-indigo-500/10 text-indigo-400 border border-indigo-500/20' 
+                  : 'text-slate-400 hover:bg-slate-900 hover:text-white border border-transparent'
+              }`
+            }
           >
             {item.icon}
-            <span className="font-medium">{item.label}</span>
-          </button>
+            <span className="font-medium">{item.name}</span>
+          </NavLink>
         ))}
       </nav>
     </aside>
   );
 };
-
-export default Sidebar;
