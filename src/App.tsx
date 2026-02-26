@@ -3,6 +3,7 @@ import './App.css'
 import DashboardLayout from './components/layout/DashboardLayout'
 import { StatCard } from './components/StatCard'
 import { TransactionTable } from './components/TransactionTable'
+import { BalanceChart } from './components/BalanceChart'
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           />
         </div>
         <TransactionTable />
+        <BalanceChart />
       </main>
       </DashboardLayout>
     </>
